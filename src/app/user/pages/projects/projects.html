@@ -1,123 +1,62 @@
-<!-- <section class="container projects">
-    <h2>My Projects</h2>
-    <div class="projects-grid">
-      <div class="project-card">Portfolio Website</div>
-      <div class="project-card">E-commerce App</div>
-      <div class="project-card">Chat Application</div>
+<section class="projects section">
+  <div class="section-inner">
+    <header class="section-head">
+      <p class="section-num">02 — Work</p>
+      <h2 class="section-title">Selected projects</h2>
+      <p class="section-desc">
+        Professional and personal work spanning healthcare, ed-tech, and full-stack development.
+      </p>
+    </header>
+
+    <div class="project-list">
+      @for (project of projects; track project.id; let i = $index) {
+        <article
+          class="project-row"
+          [class.project-row--featured]="project.featured"
+          [style.--i]="i"
+        >
+          <a
+            [href]="project.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-row-link"
+          >
+            <span class="project-num">{{ getProjectNumber(i) }}</span>
+
+            <figure
+              class="project-visual"
+              [style.background]="project.imageBg || '#f4f4f5'"
+            >
+              @if (project.image) {
+                <img [src]="project.image" [alt]="project.title" loading="lazy" />
+              } @else if (project.emoji) {
+                <span class="project-fallback">{{ project.emoji }}</span>
+              }
+            </figure>
+
+            <div class="project-content">
+              <div class="project-meta">
+                <span>{{ project.role }}</span>
+                <span class="project-dot">·</span>
+                <span>{{ project.period }}</span>
+              </div>
+              <h3 class="project-name">{{ project.title }}</h3>
+              <p class="project-desc">{{ project.description }}</p>
+              @if (project.tags && project.tags.length > 0) {
+                <ul class="project-tags">
+                  @for (tag of project.tags; track tag) {
+                    <li>{{ tag }}</li>
+                  }
+                </ul>
+              }
+            </div>
+
+            <span class="project-arrow" aria-hidden="true">
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </a>
+        </article>
+      }
     </div>
-  </section> -->
-  
-  <section id="projects" class="container projects">
-    <div class="projects-glass-bg"></div>
-    <div class="projects-card">
-      <h2 class="projects-title">Projects</h2>
-      <div class="project-grid">
-
-            <div class="project-card">
-                <a href="https://sanbjob.com" target="_blank" rel="noopener noreferrer" class="project-link">
-                <img src="assets/images/SANB-JOB.jpeg" alt="SANB JOB">
-                <h3>SANB Job</h3>
-                <h4>Senior Full Stack Developer</h4>
-                <h4>Jan 2026 - Present</h4>
-                <br>
-                <p>SANB Job is a sophisticated full-stack recruitment ecosystem built on the React and Nest.js framework, 
-                    designed to streamline the connection between job-seekers and job-providers. 
-                    By leveraging Prisma as a powerful ORM, the platform ensures type-safe and high-performance communication 
-                    with a PostgreSQL database, managing complex relational data like applicant tracking and job metadata with ease.
-                </p>
-            </a>
-        </div>
-
-          <div class="project-card">
-              <a href="https://docnow.ai" target="_blank" rel="noopener noreferrer" class="project-link">
-                <img src="assets/images/dnlogo.jpeg" alt="Doctornow">
-                <h3>DocNow EHR</h3>
-                <h4>Senior Full Stack Developer</h4>
-                <h4>Dec 2019 - Dec 2025</h4>
-                <br>
-                <p>DocNow is an EHR developed using the MEAN stack for web portals. 
-                It leverages AI to improve healthcare workflows while integrating with 
-                multiple third-party healthcare vendors like MatrixCare, PointCickCare, 
-                NextGen, etc. Additionally, it automates document 
-                management, patient health record management, and Billing.</p>
-            </a>
-        </div>
-
-        <div class="project-card">
-            <a href="https://mindcare-therapist.netlify.app" target="_blank" rel="noopener noreferrer" class="project-link">
-                <div class="project-emoji">🧠</div>
-                <h3>MindCare Pakistan</h3>
-                <h4>Full Stack Developer</h4>
-                <h4>Web Application</h4>
-                <p>MindCare Pakistan is a comprehensive therapist finder platform helping people connect with qualified mental health professionals. Features advanced search with real-time filtering, responsive design for mobile and desktop, and includes therapist details with contact information. Built with modern web technologies including MongoDB, RESTful APIs, and TypeScript.</p>
-            </a>
-        </div>
-        
-        <div class="project-card">
-            <a href="https://nearpeer.org/" target="_blank" rel="noopener noreferrer" class="project-link">
-                <img src="assets/images/nearpeerLogo.jpeg" alt="NearPeer">
-                <h3>NearPeer - EdTech Platform</h3>
-                <h4>Associate Software Engineer</h4>
-                <h4>April 2019 - Dec 2019</h4>
-                <p>Nearpeer is a Pakistani online education platform (ed-tech).
-                Nearpeer offers recorded lectures, live classes, mock tests, 
-                and peer-to-peer discussions, throughout Pakistan and the 
-                Middle East by leveraging technology, allowing students to learn 
-                at their own pace. 
-                It is built with AngularJs, Sails.js, PostgreSQL, and AWS services. </p>
-            </a>
-        </div>
-
-        <div class="project-card">
-            <a href="https://github.com/itsAliXH/ptrack" target="_blank" rel="noopener noreferrer" class="project-link">
-            <img src="assets/images/ptrackLogo.png" alt="pTrack">
-            <h3>Personal Project</h3>
-            <h4>pTrack</h4>
-            <h4>Andriod Based Application</h4>
-            <p>Developed an Android application using Java tracked user movement in real time using GPS data, displaying live locations on Google Maps.
-                Implemented local data storage with SQLite for offline access and history tracking of user routes.
-                Integrated Google Maps API for interactive map views, markers, and route visualization.
-                Designed a clean, responsive UI for location tracking, trip summaries, and navigation history.
-                Enhanced performance by optimizing GPS polling intervals, reducing battery usage during continuous
-                tracking.</p>
-            </a>
-        </div>
-
-        <div class="project-card">
-            <a href="https://github.com/itsAliXH/eCure" target="_blank" rel="noopener noreferrer" class="project-link">
-                <img src="assets/images/ecureHealth.jpeg" alt="eCureHealth">
-                <h3>Personal Project</h3>
-                <h4>eCureHealth</h4>
-                <h4>Andriod Based Application</h4>
-                <p>eCureHealth is an Andriod App built in Java. 
-                It is a healthcare app that provides a range of services to help people 
-                manage their health. 
-                It includes a patient portal, a doctor portal, and a list of 
-                hospitals and clinics with locatins. It is built using the Java, SQLite, 
-                firbase and google map APIs.</p>
-            </a>
-        </div>
-
-        <div class="project-card">
-            <a href="https://github.com/itsAliXH/revelAI-journey-engine" target="_blank" rel="noopener noreferrer" class="project-link">
-            <img src="assets/images/JS-logo.png" alt="JourneyEngine">
-            <h3>Personal Project</h3>
-            <h4>Journey Engine</h4>
-            <h4>A MicroService</h4>
-            <p>Developed an micro-service using NodeJS, ExpressJs and MongoDB to track a patient journey, it includes the 
-                patient journey in a hospital either its lab or screening etc.</p>
-            </a>
-        </div>
-
-        <div class="project-card">
-            <a href="https://github.com/itsAliXH/angular-portfolio" rel="noopener noreferrer" class="project-link">
-                <img src="assets/images/logo3.webp" alt="Portfolio">
-                <h3>Personal Project</h3>
-                <h4>Portfolio</h4>
-                <h4>2025</h4>
-                <p>A simple Portfolio app built with Angular. Just for practice to get used to the framework and latest changes in the Angular 18+ and to showcase my skills. </p>
-            </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>

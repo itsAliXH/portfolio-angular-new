@@ -1,90 +1,63 @@
-<section class="contact">
-  <div class="contact-container">
-    <div class="contact-header">
-      <h1>Get In Touch</h1>
-      <p>Let's work together on your next project</p>
-    </div>
+<section class="contact section">
+  <div class="section-inner">
+    <div class="contact-wrap">
+      <div class="contact-left">
+        <p class="section-num">03 — Contact</p>
+        <h2 class="section-title">Let's build<br />something great</h2>
+        <p class="section-desc">
+          Open to freelance, full-time roles, and collaborations.
+          Drop a message — I typically respond within 24 hours.
+        </p>
 
-    <div class="contact-content">
-      <!-- Contact Information -->
-      <div class="contact-info">
-        <h2>Contact Information</h2>
-        <div class="info-items">
-          <div class="info-item">
-            <div class="icon">
-              <i class="fa fa-envelope"></i>
-            </div>
-            <div class="info-details">
-              <h3>Email</h3>
-              <p>contactwithali.asghar@gmail.com</p>
-            </div>
-          </div>
-
-          <div class="info-item"> 
-            <div class="icon">
-              <i class="fa fa-phone"></i>
-            </div>
-            <div class="info-details">
-              <h3>Phone</h3>
-              <p>+92 304 248 8127</p>
-            </div>
-          </div>
-
-          <div class="info-item">
-            <div class="icon">
-              <i class="fa fa-map-marker-alt"></i>
-            </div>
-            <div class="info-details">
-              <h3>Location</h3>
-              <p>Lahore, Pakistan</p>
-            </div>
+        <div class="contact-details">
+          <a href="mailto:contactwithali.asghar@gmail.com" class="contact-item">
+            <span class="contact-item-label">Email</span>
+            <span class="contact-item-value">contactwithali.asghar@gmail.com</span>
+          </a>
+          <a href="tel:+923042488127" class="contact-item">
+            <span class="contact-item-label">Phone</span>
+            <span class="contact-item-value">+92 304 248 8127</span>
+          </a>
+          <div class="contact-item">
+            <span class="contact-item-label">Location</span>
+            <span class="contact-item-value">Lahore, Pakistan</span>
           </div>
         </div>
 
-        <!-- Social Media Links -->
-        <div class="social-links">
-          <h3>Follow Me</h3>
-          <div class="social-icons">
-            <a href="https://linkedin.com/in/ali-asghar" target="_blank" class="social-icon linkedin">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://github.com/ali-asghar" target="_blank" class="social-icon github">
-              <i class="fab fa-github"></i>
-            </a>
-            <a href="tel:+923042488127" class="social-icon phone">
-              <i class="fa fa-phone"></i>
-            </a>
-          </div>
+        <div class="contact-socials">
+          <a href="https://www.linkedin.com/in/alixh2547" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/itsAliXH" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
         </div>
       </div>
 
-      <!-- Contact Form -->
-      <div class="contact-form">
-        <h2>Send Message</h2>
-        <form (submit)="sendEmail($event)">
+      <form class="contact-form" (submit)="sendEmail($event)">
+        <div class="form-row">
           <div class="form-group">
-            <input type="text" id="name" name="from_name" required />
             <label for="name">Name</label>
+            <input type="text" id="name" name="from_name" placeholder="Your name" required />
           </div>
           <div class="form-group">
-            <input type="email" id="email" name="reply_to" required />
             <label for="email">Email</label>
+            <input type="email" id="email" name="reply_to" placeholder="you@email.com" required />
           </div>
-          <div class="form-group">
-            <input type="text" id="subject" name="subject" required />
-            <label for="subject">Subject</label>
-          </div>
-          <div class="form-group">
-            <textarea id="message" name="message" rows="5" required></textarea>
-            <label for="message">Message</label>
-          </div>
-          <button type="submit" class="submit-btn">
-            <span>Send Message</span>
-            <i class="fa fa-paper-plane"></i>
-          </button>
-        </form>
-      </div>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="Project inquiry" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-accent submit-btn">
+          Send message
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
     </div>
   </div>
 </section>
-  

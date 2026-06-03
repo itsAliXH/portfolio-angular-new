@@ -1,12 +1,74 @@
-<section class="hero container">
-    <div class="hero-text">
-        <p>Hi there!</p>
-        <h1>I'm <span class="highlight">Ali Asghar</span></h1>
-        <p>Software Engineer & Full-Stack Developer </p><br><br>
-            
-        <button class="view-my-work-btn" (click)="goToProjects()">View My Work</button>
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ambient" aria-hidden="true">
+    <span class="hero-orb hero-orb--lime"></span>
+    <span class="hero-orb hero-orb--violet"></span>
+  </div>
+
+  <div class="hero-inner section-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        {{ home.badge }}
+      </div>
+
+      <h1 class="hero-title">
+        {{ home.headline }}<br />
+        <span class="hero-title-accent">{{ home.headlineHighlight }}</span><br />
+        {{ home.headlineEnd }}
+      </h1>
+
+      <p class="hero-sub">
+        I'm <strong>{{ profile.name }}</strong> — a full-stack developer with
+        {{ profile.yearsExperience }}+ years building {{ home.subtitle }}
+      </p>
+
+      <div class="hero-actions">
+        <button class="btn btn-accent" (click)="goToProjects()">
+          {{ home.primaryButton }}
+          <i class="fa-solid fa-arrow-down"></i>
+        </button>
+        <button type="button" class="btn btn-ghost" (click)="goToContact()">
+          {{ home.secondaryButton }}
+        </button>
+      </div>
+
+      <div class="hero-stack">
+        @for (tech of home.techStack; track tech) {
+          <span class="tag">{{ tech }}</span>
+        }
+      </div>
     </div>
-    <div style="width: 50%;">
-        <img  src="assets/images/editedPR.png" alt="Profile Picture"  class="responsive-img img_shadow" >
+
+    <div class="hero-visual">
+      <div class="hero-frame">
+        <div class="hero-frame-spotlight" aria-hidden="true"></div>
+
+        <div class="hero-frame-square">
+          <img
+            [src]="profile.heroImage"
+            [alt]="profile.name"
+            class="hero-frame-img"
+          />
+          <div class="hero-frame-exp">
+            <span class="hero-frame-exp-num">{{ experienceYears }}</span>
+            <span class="hero-frame-exp-label">{{ home.experienceLabel }}</span>
+          </div>
+        </div>
+
+        <div class="hero-frame-info">
+          <p class="hero-frame-name">{{ profile.name }}</p>
+          <p class="hero-frame-meta">
+            <i class="fa-solid fa-location-dot"></i>
+            {{ profile.title }} · {{ profile.location }}
+          </p>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
 </section>

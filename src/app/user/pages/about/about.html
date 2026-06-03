@@ -1,95 +1,52 @@
-<section class="about-glass">
-  <div class="about-glass-bg"></div>
-  <div class="about-glass-card">
-    <div class="about-glass-left">
-      <div class="profile-img-float">
-        <img src="assets/images/profile-picture.png" alt="Profile Picture" class="profile-img" />
+<section class="about section">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-left">
+        <p class="section-num">{{ about.sectionLabel }}</p>
+        <h2 class="section-title">{{ about.headline }}</h2>
+        <p class="section-desc about-bio">{{ about.bio }}</p>
+
+        <div class="about-links">
+          @for (link of about.links; track link.label) {
+            <a
+              [href]="link.url"
+              [target]="link.openInNewTab ? '_blank' : '_self'"
+              [attr.rel]="link.openInNewTab ? 'noopener noreferrer' : null"
+              [attr.download]="link.isDownload ? '' : null"
+              class="about-link"
+              [class.about-link--accent]="link.isGreenButton"
+            >
+              <i [class]="link.icon"></i> {{ link.label }}
+            </a>
+          }
+        </div>
       </div>
-      <div class="quick-info-glass">
-        <h2>Ali Asghar</h2>
-        <p class="title">Full-Stack Developer</p>
-        <ul>
-          <!-- <li><i class="fa-solid fa-location-dot"></i> Karachi, Pakistan</li> -->
-          <li><i class="fa-solid fa-briefcase"></i> 6+ Years Experience</li>
-          <br>
-          <hr>
-          <br>
-          <li>
-            <!-- <i class="fa-solid fa-lightbulb"></i> -->
-             Expertise
-            <!-- <ul>
-              <li><i class="fa-solid fa-hospital"></i> Healthcare (EHR & EMR)</li>
-              <li><i class="fa-solid fa-graduation-cap"></i> EdTech</li>
-            </ul> -->
-          </li>
-          
-          <li><i class="fa-solid fa-hospital"></i> Healthcare (EHR & EMR)</li>
-          <li><i class="fa-solid fa-graduation-cap"></i> EdTech</li>
-        </ul>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/alixh2547" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="https://github.com/itsAliXH" target="_blank"><i class="fa-brands fa-github"></i></a>
-          <!-- <a href="#"><i class="fa-brands fa-twitter"></i></a> -->
+
+      <div class="about-right">
+        <div class="about-profile">
+          <img [src]="profile.avatarImage" [alt]="profile.name" class="about-avatar" />
+          <div class="about-profile-info">
+            <h3>{{ profile.name }}</h3>
+            <p>{{ profile.title }} · {{ profile.location }}</p>
+          </div>
         </div>
-        <a href="https://drive.google.com/uc?export=download&id=1CWeP9HiPdmy1z6KFRourkHj2GLCYLdKg" class="download-resume-btn" download>
-          <i class="fa-solid fa-download"></i> Get My Resume
-        </a>
-      </div>
-    </div>
-    <div class="about-glass-right">
-      <div class="bio-glass">
-        <h3>About Me</h3>
-        <p>
-          I'm a highly motivated and experienced full-stack developer with 6+ years of expertise designing and building scalable web applications. Skilled in JavaScript, TypeScript, Angular, Node, AWS and more. Experienced in delivering high-quality, secure, and performance-driven solutions across Healthcare and EdTech domains.
-        </p>
-      </div>
-      <div class="about-tiles-grid">
-        <div class="about-tile">
-          <div class="tile-icon"><i class="fa-solid fa-code"></i></div>
-          <h4>Frontend Skills</h4>
-          <p>
-            Angular, AngularJS, React.js, JavaScript, TypeScript, Material-UI, CSS3, HTML5, Responsive Web Design
-          </p>
+
+        <div class="skills-bento">
+          @for (skill of about.skills; track skill.title) {
+            <article class="skill-block">
+              <div class="skill-block-icon">
+                <i [class]="skill.icon"></i>
+              </div>
+              <h4>{{ skill.title }}</h4>
+              <div class="skill-block-tags">
+                @for (item of skill.items; track item) {
+                  <span class="tag">{{ item }}</span>
+                }
+              </div>
+            </article>
+          }
         </div>
-        <div class="about-tile">
-          <div class="tile-icon"><i class="fa-solid fa-server"></i></div>
-          <h4>Backend Expertise</h4>
-          <p>
-            Node.js, Express.js, NEST.js, RESTful API, MySQL, PostgreSQL, MongoDB, Firebase, JWT, OAuth, Cron Jobs
-          </p>
-        </div>
-        <div class="about-tile">
-          <div class="tile-icon"><i class="fa-solid fa-gears"></i></div>
-          <h4>DevOps & Tools</h4>
-          <p>
-            Git, GitHub, BitBucket CI/CD, Docker, AWS, Jenkin, Postman, Netlify, Agile & Scrum, Confluence
-          </p>
-        </div>
-        <div class="about-tile">
-          <div class="tile-icon"><i class="fa-solid fa-lightbulb"></i></div>
-          <h4>Healthcare Interoperability</h4>
-          <p>
-            HL7<br> FHIR<br> CCD<br> Mirth Connect<br>
-          </p>
-        </div>
-        <!-- <div class="about-tile">
-          <div class="tile-icon"><i class="fa-solid fa-certificate"></i></div>
-          <h4>Courses & Certifications</h4>
-          <p>
-            The Complete React Developer (Udemy)<br>
-            Responsive Web Design (freeCodeCamp)<br>
-            The Complete Ruby on Rails Developer (Udemy)
-          </p>
-        </div> -->
-        <!-- <div class="about-tile">
-          <div class="tile-icon"><i class="fa-solid fa-briefcase"></i></div>
-          <h4>Work</h4>
-          <p>
-            Maple HR, MomentVM, Manzeli, Upcover Inc, Air Consulting, SmartAlto
-          </p>
-        </div> -->
       </div>
     </div>
   </div>
 </section>
-  

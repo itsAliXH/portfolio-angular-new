@@ -1,20 +1,63 @@
-<nav class="navbar">
-  <div class="nav-container">
-    <div class="nav-logo">
-      <a href="#" (click)="$event.preventDefault(); scrollTo('home')">Ali Asghar</a>
-    </div>
-    
-    <div class="hamburger" (click)="toggleMenu()" [class.active]="isMenuOpen">
+<header class="nav-wrap" [class.scrolled]="isScrolled" [class.menu-open]="isMenuOpen">
+  <div class="nav-shell">
+    <a class="nav-brand" role="button" tabindex="0" (click)="scrollTo('home')">
+      <span class="nav-brand-dot"></span>
+      Ali<span class="nav-brand-accent">.</span>
+    </a>
+
+    <button
+      class="nav-burger"
+      (click)="toggleMenu()"
+      [class.active]="isMenuOpen"
+      [attr.aria-expanded]="isMenuOpen"
+      aria-controls="nav-menu"
+      aria-label="Menu"
+    >
       <span></span>
       <span></span>
-      <span></span>
-    </div>
-    
-    <ul class="nav-links" [class.active]="isMenuOpen">
-      <li><a href="#" (click)="$event.preventDefault(); scrollTo('home')">Home</a></li>
-      <li><a href="#" (click)="$event.preventDefault(); scrollTo('about')">About</a></li>
-      <li><a href="#" (click)="$event.preventDefault(); scrollTo('projects')">Projects</a></li>
-      <li><a href="#" (click)="$event.preventDefault(); scrollTo('contact')">Contact</a></li>
+    </button>
+
+    <ul id="nav-menu" class="nav-menu nav-menu--desktop">
+      <li>
+        <a role="button" tabindex="0" [class.active]="isActive('home')" (click)="scrollTo('home')">
+          Home
+        </a>
+      </li>
+      <li>
+        <a role="button" tabindex="0" [class.active]="isActive('about')" (click)="scrollTo('about')">
+          About
+        </a>
+      </li>
+      <li>
+        <a role="button" tabindex="0" [class.active]="isActive('projects')" (click)="scrollTo('projects')">
+          Work
+        </a>
+      </li>
+      <li>
+        <a role="button" tabindex="0" [class.active]="isActive('contact')" (click)="scrollTo('contact')">
+          Contact
+        </a>
+      </li>
     </ul>
   </div>
-</nav>
+
+  <!-- Full-screen overlay — outside nav-shell so fixed positioning is not trapped by backdrop-filter -->
+  <ul
+    class="nav-menu nav-menu--mobile"
+    [class.open]="isMenuOpen"
+    [attr.aria-hidden]="!isMenuOpen"
+  >
+    <li>
+      <a role="button" tabindex="0" [class.active]="isActive('home')" (click)="scrollTo('home')">Home</a>
+    </li>
+    <li>
+      <a role="button" tabindex="0" [class.active]="isActive('about')" (click)="scrollTo('about')">About</a>
+    </li>
+    <li>
+      <a role="button" tabindex="0" [class.active]="isActive('projects')" (click)="scrollTo('projects')">Work</a>
+    </li>
+    <li>
+      <a role="button" tabindex="0" [class.active]="isActive('contact')" (click)="scrollTo('contact')">Contact</a>
+    </li>
+  </ul>
+</header>
