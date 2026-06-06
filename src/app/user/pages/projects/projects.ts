@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { RevealOnScrollDirective } from '../../../common/directives/reveal-on-scroll.directive';
 import { PROJECTS } from '../../data/projects.data';
 
 @Component({
   selector: 'app-projects',
-  imports: [],
+  imports: [RevealOnScrollDirective],
   templateUrl: './projects.html',
   styleUrl: './projects.css',
 })

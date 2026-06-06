@@ -41,28 +41,33 @@
     </div>
 
     <div class="hero-visual">
-      <div class="hero-frame">
-        <div class="hero-frame-spotlight" aria-hidden="true"></div>
+      <div class="hero-portrait">
+        <div class="hero-portrait-layer hero-portrait-layer--back" aria-hidden="true"></div>
+        <div class="hero-portrait-layer hero-portrait-layer--accent" aria-hidden="true"></div>
 
-        <div class="hero-frame-square">
+        <div class="hero-portrait-main">
+          <div class="hero-portrait-corners" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
           <img
             [src]="profile.heroImage"
             [alt]="profile.name"
-            class="hero-frame-img"
+            class="hero-portrait-img"
           />
-          <div class="hero-frame-exp">
-            <span class="hero-frame-exp-num">{{ experienceYears }}</span>
-            <span class="hero-frame-exp-label">{{ home.experienceLabel }}</span>
+          <div class="hero-portrait-info">
+            <p class="hero-portrait-name">{{ profile.name }}</p>
+            <p class="hero-portrait-meta">
+              <i class="fa-solid fa-location-dot"></i>
+              {{ profile.title }} · {{ profile.location }}
+            </p>
           </div>
         </div>
 
-        <div class="hero-frame-info">
-          <p class="hero-frame-name">{{ profile.name }}</p>
-          <p class="hero-frame-meta">
-            <i class="fa-solid fa-location-dot"></i>
-            {{ profile.title }} · {{ profile.location }}
-          </p>
+        <div class="hero-portrait-exp">
+          <span class="hero-portrait-exp-num">{{ experienceYears }}</span>
+          <span class="hero-portrait-exp-label">{{ home.experienceLabel }}</span>
         </div>
+
       </div>
     </div>
   </div>

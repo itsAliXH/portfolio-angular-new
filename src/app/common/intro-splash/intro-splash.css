@@ -1,0 +1,153 @@
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.intro--exit {
+  animation: introExit 0.75s var(--ease) forwards;
+  pointer-events: none;
+}
+
+.intro-glow {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 68%);
+  opacity: 0;
+  animation: introGlow 1.4s var(--ease) 0.15s forwards;
+  pointer-events: none;
+}
+
+.intro-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.intro-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow);
+  margin-bottom: 1.25rem;
+  opacity: 0;
+  transform: scale(0);
+  animation: introDot 0.55s var(--ease) 0.1s forwards;
+}
+
+.intro-brand {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 14vw, 7rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--text);
+  display: flex;
+  margin: 0;
+}
+
+.intro-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(48px) scale(0.85);
+  filter: blur(6px);
+  animation: introLetter 0.7s var(--ease) forwards;
+  animation-delay: calc(0.25s + var(--i) * 0.14s);
+}
+
+.intro-letter--accent {
+  color: var(--accent);
+  animation-name: introLetterAccent;
+}
+
+.intro-tagline {
+  margin-top: 1.25rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  opacity: 0;
+  transform: translateY(12px);
+  animation: introTagline 0.65s var(--ease) 0.85s forwards;
+}
+
+@keyframes introDot {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes introLetter {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes introLetterAccent {
+  0% {
+    opacity: 0;
+    transform: translateY(48px) scale(0.85);
+    filter: blur(6px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(0) scale(1.15);
+    filter: blur(0);
+    color: var(--accent);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+    color: var(--accent);
+  }
+}
+
+@keyframes introTagline {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes introGlow {
+  to {
+    opacity: 0.55;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes introExit {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6%) scale(1.02);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-letter,
+  .intro-dot,
+  .intro-tagline,
+  .intro-glow {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    animation: none !important;
+  }
+}

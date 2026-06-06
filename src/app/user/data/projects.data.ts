@@ -10,10 +10,23 @@
 
 export const PROJECTS = [
   {
+    id: 'puickfuel',
+    title: 'QuickFuel',
+    role: 'Senior Full Stack Developer',
+    period: 'March 2026 – Present',
+    description:
+      'An enterprise-grade fuel management and POS platform powering multi-site retail across Australia. Developed resilient edge-to-cloud data pipelines that sync forecourt hardware, back-office administration, and corporate head offices in real time, ensuring zero-downtime transaction processing.',
+    url: 'https://www.quickfuel.com.au/',
+    image: 'assets/images/quickfuel.jpg',
+    imageBg: '#ffffff',
+    tags: ['Angular', '.Net', 'MySQL', 'PostgreSQL'],
+    featured: true,
+  },
+  {
     id: 'sanb-job',
     title: 'SANB Job',
     role: 'Senior Full Stack Developer',
-    period: 'Jan 2026 – Present',
+    period: 'Jan 2026 – March 2026',
     description:
       'A full-stack recruitment ecosystem built with React and Nest.js, connecting job-seekers and employers. Uses Prisma ORM with PostgreSQL for type-safe, high-performance data management including applicant tracking and job metadata.',
     url: 'https://sanbjob.com',
@@ -95,16 +108,16 @@ export const PROJECTS = [
     imageBg: '#f8fafc',
     tags: ['Node.js', 'Express', 'MongoDB'],
   },
-  {
-    id: 'portfolio',
-    title: 'Portfolio',
-    role: 'Personal Project',
-    period: '2025',
-    description:
-      'A portfolio built with Angular to practice modern framework patterns and showcase professional work.',
-    url: 'https://github.com/itsAliXH/angular-portfolio',
-    image: 'assets/images/logo3.webp',
-    imageBg: '#ffffff',
-    tags: ['Angular', 'TypeScript'],
-  },
+  // {
+  //   id: 'portfolio',
+  //   title: 'Portfolio',
+  //   role: 'Personal Project',
+  //   period: '2025',
+  //   description:
+  //     'A portfolio built with Angular to practice modern framework patterns and showcase professional work.',
+  //   url: 'https://github.com/itsAliXH/angular-portfolio',
+  //   image: 'assets/images/logo3.webp',
+  //   imageBg: '#ffffff',
+  //   tags: ['Angular', 'TypeScript'],
+  // },
 ];

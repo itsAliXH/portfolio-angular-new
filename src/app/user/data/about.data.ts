@@ -7,7 +7,7 @@ import { PROFILE } from './profile.data';
 export const ABOUT = {
   sectionLabel: '01 — About',
 
-  headline: 'Full-stack engineer across healthcare & ed-tech',
+  headline: 'Full-stack engineer across healthcare, ed-tech and POS systems',
 
   bio:
     'I design and ship scalable web applications — from EHR integrations and AI-driven healthcare workflows to recruitment platforms and ed-tech products. Focused on clean architecture, performance, and real-world impact.',

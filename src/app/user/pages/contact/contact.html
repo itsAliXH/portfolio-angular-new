@@ -1,7 +1,7 @@
 <section class="contact section">
   <div class="section-inner">
     <div class="contact-wrap">
-      <div class="contact-left">
+      <div class="contact-left" reveal revealDirection="left">
         <p class="section-num">03 — Contact</p>
         <h2 class="section-title">Let's build<br />something great</h2>
         <p class="section-desc">
@@ -34,7 +34,7 @@
         </div>
       </div>
 
-      <form class="contact-form" (submit)="sendEmail($event)">
+      <form class="contact-form" reveal revealDirection="right" [revealDelay]="120" (submit)="sendEmail($event)">
         <div class="form-row">
           <div class="form-group">
             <label for="name">Name</label>

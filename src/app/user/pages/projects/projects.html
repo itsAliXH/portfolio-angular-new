@@ -1,6 +1,6 @@
 <section class="projects section">
   <div class="section-inner">
-    <header class="section-head">
+    <header class="section-head" reveal>
       <p class="section-num">02 — Work</p>
       <h2 class="section-title">Selected projects</h2>
       <p class="section-desc">
@@ -13,7 +13,8 @@
         <article
           class="project-row"
           [class.project-row--featured]="project.featured"
-          [style.--i]="i"
+          reveal
+          [revealDelay]="i * 100"
         >
           <a
             [href]="project.url"

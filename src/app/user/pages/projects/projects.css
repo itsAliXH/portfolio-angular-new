@@ -13,10 +13,6 @@
 /* ── Row ── */
 .project-row {
   border-bottom: 1px solid var(--border);
-  opacity: 0;
-  transform: translateY(28px);
-  animation: projectReveal 0.7s var(--ease) forwards;
-  animation-delay: calc(var(--i) * 0.08s + 0.1s);
 }
 
 .project-row-link {
@@ -243,18 +239,6 @@
 .project-row:hover .project-arrow i {
   transform: translateX(3px);
   animation: arrowPulse 1.2s ease infinite;
-}
-
-/* ── Keyframes ── */
-@keyframes projectReveal {
-  from {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 @keyframes arrowPulse {

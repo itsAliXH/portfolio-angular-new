@@ -173,6 +173,72 @@ img {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border);
   border-radius: var(--radius-pill);
+  transition: transform 0.25s var(--ease), border-color 0.25s, background 0.25s, color 0.25s;
+}
+
+.tag:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text);
+}
+
+/* ── Scroll reveal animations ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.75s var(--ease),
+    transform 0.75s var(--ease);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal.reveal--left {
+  transform: translateX(-36px);
+}
+
+.reveal.reveal--left.is-visible {
+  transform: translateX(0);
+}
+
+.reveal.reveal--right {
+  transform: translateX(36px);
+}
+
+.reveal.reveal--right.is-visible {
+  transform: translateX(0);
+}
+
+.reveal.reveal--scale {
+  transform: scale(0.94);
+}
+
+.reveal.reveal--scale.is-visible {
+  transform: scale(1);
+}
+
+.reveal.is-visible .section-num {
+  animation: sectionNumIn 0.8s var(--ease) both;
+  animation-delay: calc(var(--reveal-delay, 0ms) + 80ms);
+}
+
+@keyframes sectionNumIn {
+  from {
+    opacity: 0;
+    letter-spacing: 0.28em;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    letter-spacing: 0.15em;
+    transform: translateY(0);
+  }
 }
 
 /* ── Grain overlay (applied via app shell) ── */
@@ -227,8 +293,15 @@ img {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *:not(.intro):not(.intro *),
+  *:not(.intro):not(.intro *)::before,
+  *:not(.intro):not(.intro *)::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }

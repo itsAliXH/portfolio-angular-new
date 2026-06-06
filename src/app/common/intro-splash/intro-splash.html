@@ -1,0 +1,15 @@
+@if (showIntro()) {
+  <div class="intro" [class.intro--exit]="exiting()" aria-hidden="true">
+    <div class="intro-glow" aria-hidden="true"></div>
+    <div class="intro-inner">
+      <span class="intro-dot" aria-hidden="true"></span>
+      <h1 class="intro-brand" aria-label="Ali">
+        <span class="intro-letter" style="--i: 0">A</span>
+        <span class="intro-letter" style="--i: 1">l</span>
+        <span class="intro-letter" style="--i: 2">i</span>
+        <span class="intro-letter intro-letter--accent" style="--i: 3">.</span>
+      </h1>
+      <p class="intro-tagline">Full-Stack Developer</p>
+    </div>
+  </div>
+}

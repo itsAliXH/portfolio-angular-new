@@ -64,13 +64,14 @@ a.contact-item:hover .contact-item-value {
   border-radius: var(--radius-sm);
   color: var(--text-muted);
   font-size: 1rem;
-  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  transition: color 0.25s var(--ease), border-color 0.25s, background 0.25s, transform 0.25s var(--ease);
 }
 
 .contact-socials a:hover {
   color: var(--accent);
   border-color: rgba(163, 230, 53, 0.3);
   background: var(--accent-dim);
+  transform: translateY(-3px);
 }
 
 .contact-form {
@@ -122,7 +123,7 @@ a.contact-item:hover .contact-item-value {
   background: var(--bg-raised);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease), transform 0.25s var(--ease);
 }
 
 .form-group input::placeholder,
@@ -135,6 +136,7 @@ a.contact-item:hover .contact-item-value {
   outline: none;
   border-color: rgba(163, 230, 53, 0.4);
   box-shadow: 0 0 0 3px var(--accent-dim);
+  transform: translateY(-1px);
 }
 
 .form-group textarea {

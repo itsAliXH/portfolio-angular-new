@@ -4,9 +4,29 @@
   background: var(--bg);
 }
 
+:host.page-ready .page-content {
+  animation: pageReveal 0.9s var(--ease) both;
+}
+
+@keyframes pageReveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .page-content {
   padding-top: var(--nav-height);
   padding-bottom: env(safe-area-inset-bottom);
+  opacity: 0;
+}
+
+:host.page-ready .page-content {
+  opacity: 1;
 }
 
 section {
